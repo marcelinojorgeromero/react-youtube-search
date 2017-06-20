@@ -5,7 +5,7 @@ const VideoListItem = ({ video, onVideoSelect }) => {
     //https://www.youtube.com/watch?v=
     
     return (
-        <li onClick={ () => onVideoSelect(video) } className="list-group-item">
+        <li onClick={ () => onVideoSelect(video) } className="list-group-item hand-cursor">
             <div className="media">
                 <div className="media-left media-middle">
                     <img 
