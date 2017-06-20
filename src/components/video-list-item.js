@@ -5,15 +5,22 @@ const VideoListItem = ({ video }) => {
     //https://www.youtube.com/watch?v=
     //<iframe width="560" height="315" src="https://www.youtube.com/embed/T7jC3LDlLi8" frameborder="0" allowfullscreen></iframe>
     return (
-        <li>
-            <h3>
-                { video.snippet.title } <br />
-                <small>{ video.snippet.description }</small>
-            </h3>
-            <img 
-                src={video.snippet.thumbnails.default.url}
-                height={ video.snippet.thumbnails.default.height }
-                width={ video.snippet.thumbnails.default.width } />
+        <li className="list-group-item">
+            <div className="media">
+                <div className="media-left media-middle">
+                    <img 
+                        src={ video.snippet.thumbnails.default.url }
+                        alt={ video.snippet.title }
+                        className="media-object img-rounded" 
+                    />
+                </div>
+                <div className="media-body">
+                    <h4 className="media-heading">
+                        { video.snippet.title }
+                    </h4>
+                    <small>{ video.snippet.description }</small>
+                </div>
+            </div>
         </li>
     );
 };
