@@ -22,7 +22,7 @@ class App extends Component {
 			key: API_KEY_YOUTUBE,
 			part: 'snippet',
 			term: 'surfboards',
-			maxResults: 20,
+			maxResults: 2,
 			type: 'video'
 		};
 		youtubeApi.search(params).then(response => {
