@@ -17,18 +17,24 @@ class App extends Component {
 	constructor(props){
 		super(props);
 
-		this.state = { videos: null };
+		this.state = {
+			videos: null,
+			selectedVideo: null
+		};
 
 		let params = {
 			key: API_KEY_YOUTUBE,
 			part: 'snippet',
 			term: 'nyan cat',
-			maxResults: 2,
+			maxResults: 20,
 			type: 'video'
 		};
 		youtubeApi.search(params).then(response => {
 			let videos = JSON.parse(response);
-			this.setState({ videos })
+			this.setState({
+				videos: videos,
+				selectedVideo: videos.items[0]
+			});
 		});
 	}
 
@@ -46,9 +52,11 @@ class App extends Component {
 
 				<div className="row">
 					<div className="col-md-8">
-						<VideoDetail video={ this.state.videos ? this.state.videos.items[0] : null } />
+						<VideoDetail video={ this.state.selectedVideo } />
 					</div>
-					<VideoList videos={ this.state.videos } />
+					<VideoList 
+						onVideoSelect={ selectedVideo => this.setState({ selectedVideo }) }
+						videos={ this.state.videos } />
 				</div>
 			</div>
 		);

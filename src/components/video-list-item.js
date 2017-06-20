@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const VideoListItem = ({ video }) => {
+const VideoListItem = ({ video, onVideoSelect }) => {
     //https://www.youtube.com/watch?v=
     
     return (
-        <li className="list-group-item">
+        <li onClick={ () => onVideoSelect(video) } className="list-group-item">
             <div className="media">
                 <div className="media-left media-middle">
                     <img 
