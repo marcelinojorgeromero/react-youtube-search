@@ -5,6 +5,7 @@ import './App.css';
 import YoutubeApi from './youtube-api'
 import SearchBar from './components/search-bar'
 import VideoList from './components/video-list'
+import VideoDetail from './components/video-detail'
 
 const API_KEY_YOUTUBE = 'AIzaSyBFRtOhA-URHZfYDwdUCklcSDredMJdHJI';
 
@@ -21,7 +22,7 @@ class App extends Component {
 		let params = {
 			key: API_KEY_YOUTUBE,
 			part: 'snippet',
-			term: 'surfboards',
+			term: 'nyan cat',
 			maxResults: 2,
 			type: 'video'
 		};
@@ -44,6 +45,9 @@ class App extends Component {
 				</div>
 
 				<div className="row">
+					<div className="col-md-8">
+						<VideoDetail video={ this.state.videos ? this.state.videos.items[0] : null } />
+					</div>
 					<VideoList videos={ this.state.videos } />
 				</div>
 			</div>
