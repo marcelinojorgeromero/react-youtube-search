@@ -15,12 +15,17 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div>
-                <input 
-                value={this.state.term}
-                onChange={ event => this.setState({ term: event.target.value }) } /><br/>
-                Value of the input: { this.state.term }
-            </div>
+            <form>
+                <div className="form-group">
+                    <label>Query:</label>
+                    <input 
+                    type="text" className="form-control" id="search-query-main-input" placeholder="search..."
+                    value={this.state.term}
+                    onChange={ event => this.setState({ term: event.target.value }) } />
+                    <br/>
+                    Value of the input: { this.state.term }
+                </div>
+            </form>
         );
     }
 }

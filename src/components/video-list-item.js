@@ -6,7 +6,10 @@ const VideoListItem = ({ video }) => {
     //<iframe width="560" height="315" src="https://www.youtube.com/embed/T7jC3LDlLi8" frameborder="0" allowfullscreen></iframe>
     return (
         <li>
-            <h3>{ video.snippet.title }</h3>
+            <h3>
+                { video.snippet.title } <br />
+                <small>{ video.snippet.description }</small>
+            </h3>
             <img 
                 src={video.snippet.thumbnails.default.url}
                 height={ video.snippet.thumbnails.default.height }
