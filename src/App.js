@@ -19,21 +19,28 @@ class App extends Component {
 
 		this.state = {
 			videos: null,
-			selectedVideo: null
+			selectedVideo: null,
+			term: ''
 		};
 
-		let params = {
+		this.search('nyan cat');
+	}
+
+	search(term) {
+		const youTubeSearchParams = {
 			key: API_KEY_YOUTUBE,
 			part: 'snippet',
-			term: 'nyan cat',
+			term: term,
 			maxResults: 20,
 			type: 'video'
 		};
-		youtubeApi.search(params).then(response => {
+
+		youtubeApi.search(youTubeSearchParams).then(response => {
 			let videos = JSON.parse(response);
 			this.setState({
 				videos: videos,
-				selectedVideo: videos.items[0]
+				selectedVideo: videos.items[0],
+				term: term
 			});
 		});
 	}
@@ -47,7 +54,7 @@ class App extends Component {
 				</div>
 				<div className="jumbotron">
 					<h1>You can search a video from youtube</h1>
-					<SearchBar />
+					<SearchBar onSearchTermChange={ term => this.search(term) }/>
 				</div>
 
 				<div className="row">
