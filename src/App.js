@@ -48,20 +48,18 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App container-fluid">
+			<div className="App container">
 				<div className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h2>Welcome to React</h2>
+					<h2>React App</h2>
 				</div>
 				<div className="jumbotron">
-					<h1>Search on youtube</h1>
-					<SearchBar onSearchTermChange={ _.debounce(term => this.search(term), 500) }/>
+					<h2>Search on youtube</h2>
+					<SearchBar onSearchTermChange={ _.debounce(term => this.search(term), 1000) }/>
 				</div>
 
 				<div className="row">
-					<div className="col-md-8">
-						<VideoDetail video={ this.state.selectedVideo } />
-					</div>
+					<VideoDetail video={ this.state.selectedVideo } />
 					<VideoList 
 						onVideoSelect={ selectedVideo => this.setState({ selectedVideo }) }
 						videos={ this.state.videos } />
