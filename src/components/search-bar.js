@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-//const SearchBar = () => <input />;
-
 class SearchBar extends Component {
 
     constructor(props) {

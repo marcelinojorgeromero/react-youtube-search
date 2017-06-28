@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import _ from 'lodash';
 
 import YoutubeApi from './youtube-api'
 import SearchBar from './components/search-bar'
@@ -53,8 +54,8 @@ class App extends Component {
 					<h2>Welcome to React</h2>
 				</div>
 				<div className="jumbotron">
-					<h1>You can search a video from youtube</h1>
-					<SearchBar onSearchTermChange={ term => this.search(term) }/>
+					<h1>Search on youtube</h1>
+					<SearchBar onSearchTermChange={ _.debounce(term => this.search(term), 500) }/>
 				</div>
 
 				<div className="row">
